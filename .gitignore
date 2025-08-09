@@ -1,0 +1,9 @@
+animations.ipynb
+*.pyc
+.gitattributes
+data/ghcnd_india_rain_raw.txt
+data/impute_gauss.py
+data/india_rain_ksimpute.txt
+data/.DS_Store
+.DS_Store
+HMM+logregL1.ipynb
