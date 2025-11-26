@@ -38,9 +38,54 @@ mutual information between pairs of stations.
 For more details, see [Report.pdf](Report.pdf).
 
 ---
+## Adding BIC penalty to Chow-Liu Trees
+Adding a BIC penalty lets the Chow–Liu procedure prune weak edges, so instead of forcing a fully connected tree, it can return a smaller forest that keeps only the strongest spatial dependencies.
+
+###### add img here 
+
+After adding the BIC penalty, the monsoon state still showed strong coastal links, the transitional state preserved only its major rainy-region edges, and the dry state became almost empty, 
+highlighting the much weaker mutual information during the dry season.
+
+---
+## Baseline
+
+
+---
+## Model Selection
+
+We use two model selection methods to choose the number of latent temporal states for the HMM.
+
+- **LOOCV:** The data is split into ten folds (years). For each fold, the model is trained on nine years and evaluated on the held-out year, and the held-out pseudo-log-likelihood per day (PLL/day) is used as the model selection metric.
+- **BIC:**  Models with different latent state counts are evaluated using the BIC score, which balances fit and complexity, lower BIC score indicate a better trade-off.
+
+  ###### add table here 
+
+---
 
 ## Acknowledgements
 
 This project was made as the final project for my Graphical Models class at UCI. 
 
-I would like to thank Prof. Alexander Ihler for his guidance, class materials, and the [pyGMs](https://github.com/ihler/pyGMs) library used in this project (see `pyGMs-license.txt`).
+I would like to thank Prof. Alexander Ihler for his guidance, class materials, and his [pyGMs](https://github.com/ihler/pyGMs) library used in this project.
+
+
+---
+
+## Code Resources
+
+- The Baum–Welch learning algorithm was borrowed from the CS179 class material ([ActivityHMM](https://ics.uci.edu/~ihler/classes/cs179/Demo%20-%20ActivityHMM.html)).
+
+- The Chow–Liu implementation was borrowed and lightly modified from the [pyGMs](https://github.com/ihler/pyGMs) library (see `pyGMs-license.txt`).
+
+---
+
+## Citations
+[1] Kirshner, S., Smyth, P., & Robertson, A. W. (2004). Conditional Chow–Liu tree structures for modeling discrete-valued vector time series.
+UAI’04.
+https://arxiv.org/abs/1207.4142
+
+[2] Ihler, A. T., et al. Graphical Models for Statistical Inference and Data Assimilation.
+https://www.ics.uci.edu/~ihler/papers/physd07.pdf
+
+[3] pyGMs Library (Alexander Ihler).
+https://github.com/ihler/pyGMs
