@@ -94,8 +94,8 @@ def LOOCV(labels, n_states):
         n_states : Number of hidden states in the HMM.
 
     Returns:
-        total_ll    : Total predictive log-likelihood across all folds.
-        pll_per_day : Average predictive log-likelihood per day.
+        total_ll    : Total held-out log-likelihood (PLL) across all folds.
+        pll_per_day : Average held-out log-likelihood per day.
     """
     N = len(labels)     # 3652 days
     d = labels.shape[1] # 53 stations
