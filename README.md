@@ -132,6 +132,12 @@ I would like to thank Prof. Alexander Ihler for his guidance, class materials, a
 
 ---
 
+## Data
+
+The rainfall data come from the NOAA GHCN-Daily dataset (India, 1985–1995).
+
+---
+
 ## Citations
 [1] Kirshner, S., Smyth, P., & Robertson, A. W. (2004). Conditional Chow–Liu tree structures for modeling discrete-valued vector time series.
 UAI’04.
