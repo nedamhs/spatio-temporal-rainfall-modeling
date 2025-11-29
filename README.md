@@ -10,7 +10,7 @@ Learning is performed with the **Baum Welch algorithm**, a specific instance of 
 
 **E step**: computes the posterior distribution over latent states for each day using forward backward algorithm.
 
-**M step**:maximizes the expected log likelihood by updating the transition probabilities and relearning a separate Chow Liu tree for each state using data weighted by the state posteriors, allowing each tree structure to adapt as the latent assignments evolve.
+**M step**: maximizes the expected log likelihood by updating the transition probabilities and relearning a separate Chow Liu tree for each state using data weighted by the state posteriors, allowing each tree structure to adapt as the latent assignments evolve.
 
 For more details, see [Report.pdf](Report.pdf).
 
