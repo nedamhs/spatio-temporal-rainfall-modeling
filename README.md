@@ -45,9 +45,9 @@ The emission distribution p(x|z=k) for each latent state z is modeled using a Ch
 stations via a tree-structured Ising model. The edges of the tree are selected to form a maximum-weight spanning tree based on 
 mutual information between pairs of stations.
 
-<img src="assets/HMM+CL.png" width="930" height="500" />
+<img src="assets/HMM+CL+PLL.png" width="930" height="500" />
 
-
+* Overall EM-trained weighted mean pseudo-log-likelihood = –15.89
 * Node colors represent the average rainfall frequency at each station across all days assigned to the corresponding latent state, edge width indicates the strength of Mutual Information between stations.
 *  Z = 0 corresponds to transitional season, Z = 1 corresponds to Rainy/Monsoon season, Z=2 corresponds to dry season.
 
@@ -61,16 +61,16 @@ Adding a BIC penalty lets the Chow–Liu procedure prune weak edges, so instead 
 After adding the BIC penalty, the monsoon state still showed strong coastal links, the transitional state preserved only its major rainy-region edges, and the dry state became almost empty, 
 highlighting the much weaker mutual information during the dry season.
 
-<!--
+
 ---
 ## Baseline comparison
- <img src="assets/global_CL.png" width="400" />
+ <img src="assets/global_CL.png" width="350" />
 
 
-To evaluate the effectiveness of the HMM plus Chow Liu model, we compare it to a baseline consisting of a single global Chow Liu tree learned on the full ten year dataset. Quantitatively, the global Chow Liu model achieves a mean pseudo log likelihood per day of −18.59, while the EM learned HMM with state dependent Chow Liu emissions achieves −15.89, which is an improvement of about 14.5 percent. Qualitatively, the global model produces long range edges between distant stations, whereas the state dependent Chow Liu trees yield more coherent and regionally consistent dependency patterns, especially in the rainy season state.
+To evaluate the effectiveness of the HMM plus Chow Liu model, we compare it to a baseline consisting of a single global Chow Liu tree learned on the full ten year dataset. Quantitatively, the global Chow Liu model achieves a mean pseudo log likelihood per day of −18.59, while the EM learned HMM with state dependent Chow Liu emissions achieves −15.89, which is an improvement of about 15 percent. Qualitatively, the global model produces long range edges between distant stations, whereas the state dependent Chow Liu trees yield more coherent and regionally consistent dependency patterns, especially in the rainy season state.
 
 
- 
+ <!--
 ---
 ## Model Selection
 
