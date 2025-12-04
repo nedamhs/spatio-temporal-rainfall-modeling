@@ -126,7 +126,7 @@ I would like to thank Prof. Alexander Ihler for his guidance, class materials, a
 
 ## Code Resources
 
-- The Baum–Welch learning algorithm was borrowed from the CS179 class material ([ActivityHMM](https://ics.uci.edu/~ihler/classes/cs179/Demo%20-%20ActivityHMM.html)).
+- The Baum–Welch learning algorithm was borrowed from the CS179 class material.
 
 - The Chow–Liu implementation was borrowed and lightly modified from the [pyGMs](https://github.com/ihler/pyGMs) library (see `pyGMs-license.txt`).
 
