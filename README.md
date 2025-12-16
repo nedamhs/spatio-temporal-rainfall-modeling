@@ -2,6 +2,11 @@
 
  **Hidden Markov Models (HMMs)** with **Chow–Liu tree** emissions for modeling seasonal rainfall patterns in India
 
+ This project is inspired by [this paper](https://arxiv.org/abs/1207.4142):
+
+> Kirshner, S., Smyth, P., & Robertson, A. W. (2004). Conditional Chow–Liu tree structures for modeling discrete-valued vector time series. *Proceedings of the 20th Conference on Uncertainty in Artificial Intelligence (UAI'04)*, pp. 317–324. AUAI Press.
+
+
 ## Project Overview
 
 This project applies latent variable modeling and structure learning methods to analyze ten years of daily binary rainfall events across 54 weather stations in India. The goal is to uncover large scale seasonal rainfall regimes and understand how spatial dependency patterns change across these regimes. A Hidden Markov Model captures the temporal dynamics of latent seasonal states, while each state's spatial structure is learned using a Chow Liu tree constructed as a maximum spanning tree over pairwise mutual information. This results in interpretable latent regimes, each with its own learned spatial dependency structure.
@@ -13,10 +18,6 @@ Learning is performed with the **Baum Welch algorithm**, a specific instance of 
 **M step**: maximizes the expected log likelihood by updating the transition probabilities and relearning a separate Chow Liu tree for each state using data weighted by the state posteriors, allowing each tree structure to adapt as the latent assignments evolve.
 
 For more details, see [Report.pdf](Report.pdf).
-
-This project is inspired by [this paper](https://arxiv.org/abs/1207.4142):
-
-> Kirshner, S., Smyth, P., & Robertson, A. W. (2004). Conditional Chow–Liu tree structures for modeling discrete-valued vector time series. *Proceedings of the 20th Conference on Uncertainty in Artificial Intelligence (UAI'04)*, pp. 317–324. AUAI Press.
 
 ---
 
