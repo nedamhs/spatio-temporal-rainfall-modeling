@@ -11,7 +11,7 @@
 
 This project applies latent variable modeling and structure learning methods to analyze ten years of daily binary rainfall events across 54 weather stations in India. The goal is to uncover large scale seasonal rainfall regimes and understand how spatial dependency patterns change across these regimes. A Hidden Markov Model captures the temporal dynamics of latent seasonal states, while each state's spatial structure is learned using a Chow Liu tree constructed as a maximum spanning tree over pairwise mutual information. This results in interpretable latent regimes, each with its own learned spatial dependency structure.
 
-Learning is performed with the **Baum Welch algorithm**, a specific instance of **Expectation Maximization**:
+Learning is performed with the **Baum-Welch algorithm**, a specific instance of **Expectation-Maximization**:
 
 **E-step**: computes the posterior distribution over latent states for each day using forward backward algorithm.
 
