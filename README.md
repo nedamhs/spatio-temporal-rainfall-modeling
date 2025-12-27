@@ -9,13 +9,13 @@
 
 ## Project Overview
 
-This project applies latent variable modeling and structure learning methods to analyze ten years of daily binary rainfall events across 54 weather stations in India. The goal is to uncover large scale seasonal rainfall regimes and understand how spatial dependency patterns change across these regimes. A Hidden Markov Model captures the temporal dynamics of latent seasonal states, while each state's spatial structure is learned using a Chow Liu tree constructed as a maximum spanning tree over pairwise mutual information. This results in interpretable latent regimes, each with its own learned spatial dependency structure.
+This project applies latent variable modeling and structure learning methods to analyze ten years of daily binary rainfall events across 54 weather stations in India. The goal is to uncover large scale seasonal rainfall regimes and understand how spatial dependency patterns change across these regimes. A Hidden Markov Model captures the temporal dynamics of latent seasonal states, while each state's spatial structure is learned using a Chow-Liu tree constructed as a maximum spanning tree over pairwise mutual information. This results in interpretable latent regimes, each with its own learned spatial dependency structure.
 
 Learning is performed with the **Baum-Welch algorithm**, a specific instance of **Expectation-Maximization**:
 
-**E-step**: computes the posterior distribution over latent states for each day using forward backward algorithm.
+**E-step**: computes the posterior distribution over latent states for each day using forward-backward algorithm.
 
-**M-step**: maximizes the expected log likelihood by updating the transition probabilities and relearning a separate Chow Liu tree for each state using data weighted by the state posteriors, allowing each tree structure to adapt as the latent assignments evolve.
+**M-step**: maximizes the expected log likelihood by updating the transition probabilities and re learning a separate Chow-Liu tree for each state using data weighted by the state posteriors, allowing each tree structure to adapt as the latent assignments evolve.
 
 For more details, see [Report.pdf](Report.pdf).
 
