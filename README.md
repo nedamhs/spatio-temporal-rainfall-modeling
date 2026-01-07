@@ -15,7 +15,7 @@ Learning is performed with the **Baum-Welch algorithm**, a specific instance of 
 
 **E-step**: computes the posterior distribution over latent states for each day using forward-backward algorithm. [[1]](https://arxiv.org/abs/1207.4142)
 
-**M-step**: maximizes the expected log likelihood by updating the transition probabilities given the distribution from the E-step and re learning a separate Chow-Liu tree for each state using data weighted by the state posteriors, allowing each tree structure to adapt as the latent assignments evolve.
+**M-step**: maximizes the expected log likelihood by updating the transition probabilities given the distribution from the E-step and re learning a separate Chow-Liu tree for each state using data weighted by the state posteriors, allowing each tree structure to adapt as the latent assignments evolve. [[1]](https://arxiv.org/abs/1207.4142)
 
 For more details, see [Report.pdf](Report.pdf).
 
@@ -55,7 +55,7 @@ mutual information between pairs of stations.
 
 ---
 ## Adding BIC penalty to Chow-Liu Trees
-Adding a BIC penalty lets the Chow–Liu procedure prune weak edges, so instead of forcing a fully connected tree, it can return a smaller forest that keeps only the strongest spatial dependencies.
+Adding a BIC penalty lets the Chow–Liu procedure prune weak edges, i.e., select fewer edges when they do not improve the log likelihood sufficiently, so instead of forcing a fully connected tree, it can return a smaller forest that keeps only the strongest spatial dependencies. [4]
 
  <img src="assets/BicPenalty0.015.png" width="950" />
 
@@ -149,3 +149,7 @@ https://www.ics.uci.edu/~ihler/papers/physd07.pdf
 
 [3] pyGMs Library (Alexander Ihler).
 https://github.com/ihler/pyGMs
+
+[4] Learning from Data Notebook (pyGMs; Alexander Ihler).
+https://github.com/ihler/pyGMs/blob/master/notebooks/06%20Learning%20from%20Data.ipynb
+
