@@ -13,7 +13,7 @@ This project applies latent variable modeling and structure learning methods to 
 
 Learning is performed with the **Baum-Welch algorithm**, a specific instance of **Expectation-Maximization**:
 
-**E-step**: computes the posterior distribution over latent states for each day using forward-backward algorithm.
+**E-step**: computes the posterior distribution over latent states for each day using forward-backward algorithm. [[1]](https://arxiv.org/abs/1207.4142)
 
 **M-step**: maximizes the expected log likelihood by updating the transition probabilities and re learning a separate Chow-Liu tree for each state using data weighted by the state posteriors, allowing each tree structure to adapt as the latent assignments evolve.
 
