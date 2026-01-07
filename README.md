@@ -55,7 +55,7 @@ mutual information between pairs of stations.
 
 ---
 ## Adding BIC penalty to Chow-Liu Trees
-Adding a BIC penalty lets the Chow–Liu procedure prune weak edges, i.e., select fewer edges when they do not improve the log likelihood sufficiently, so instead of forcing a fully connected tree, it can return a smaller forest that keeps only the strongest spatial dependencies. [4]
+Adding a BIC penalty lets the Chow–Liu procedure prune weak edges, i.e., select fewer edges when they do not improve the log likelihood sufficiently, so instead of forcing a fully connected tree, it can return a smaller forest that keeps only the strongest spatial dependencies. [[4]] (https://github.com/ihler/pyGMs/blob/master/notebooks/06%20Learning%20from%20Data.ipynb) 
 
  <img src="assets/BicPenalty0.015.png" width="950" />
 
