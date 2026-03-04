@@ -70,14 +70,14 @@ highlighting the much weaker mutual information during the dry season.
 To evaluate the effectiveness of the HMM+Chow-Liu model, we compare it to a baseline consisting of a single global Chow Liu tree learned on the full ten year dataset. Quantitatively, the global Chow Liu model achieves a mean pseudo log likelihood(PLL) per day of −18.59, while the EM learned HMM with state dependent Chow Liu emissions achieves overall mean PLL per day of −15.89, which is an improvement of about 15 percent. Qualitatively, the global model produces long range edges between distant stations, whereas the state dependent Chow Liu trees yield more coherent and regionally consistent dependency patterns, especially in the rainy season state.
 
 
- <!--
+
 ---
 ## Model Selection
 
 We use two model selection methods to choose the number of latent temporal states for the HMM.
 
 - **LOOCV:** The data is split into ten folds (years). For each fold, the model is trained on nine years and evaluated on the held-out year, and the held-out pseudo-log-likelihood per day (PLL/day) is used as the model selection metric.
-- **BIC:**  Models with different latent state counts are evaluated using the BIC score, which balances fit and complexity, lower BIC score indicate a better trade-off.
+- **BIC:**  Models with different latent state counts are evaluated using the BIC score, which balances fit and complexity.
   
 <table style="width:100%;">
 <tr>
@@ -112,7 +112,7 @@ We use two model selection methods to choose the number of latent temporal state
 </table>
 
 LOOCV favored \(k = 4\) and BIC favored \(k = 3\); to avoid redundancy and maintain interpretability, the three-state HMM was selected.
--->
+
 ---
 
 ## Acknowledgements
