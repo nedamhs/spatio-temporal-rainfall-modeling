@@ -129,22 +129,22 @@ LOOCV favored \(k = 4\) and BIC favored \(k = 3\); to avoid redundancy and maint
 
 ## Acknowledgements
 
-This project was made as the final project for my Graphical Models class at UCI. I would like to thank Prof. Alexander Ihler for his guidance, class materials, and his [pyGMs](https://github.com/ihler/pyGMs) library used in this project.
+This project was made as the final project for my Graphical Models class at UCI under Prof. Alexander Ihler. 
+
+
+<!-- I would like to thank Prof. Alexander Ihler for his guidance, class materials, and his [pyGMs](https://github.com/ihler/pyGMs) library used in this project. -->
 
 
 ---
 
-## Code Resources
+## Notes 
 
-- The Baum–Welch learning algorithm was borrowed from the CS179 class material.
+The Baum–Welch learning algorithm was borrowed from the CS179 class material.
 
-- The Chow–Liu implementation was borrowed and modified from the [pyGMs](https://github.com/ihler/pyGMs) library (see `pyGMs-license.txt`).
+The Chow–Liu implementation was borrowed and modified from the [pyGMs](https://github.com/ihler/pyGMs) library (see `pyGMs-license.txt`).
 
----
+Data: The rainfall data come from the NOAA GHCN-Daily dataset (India, 1985–1995).
 
-## Data
-
-The rainfall data come from the NOAA GHCN-Daily dataset (India, 1985–1995).
 
 ---
 
