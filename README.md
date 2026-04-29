@@ -4,18 +4,23 @@
 
  This project is inspired by [this paper](https://arxiv.org/abs/1207.4142):
 
-> Kirshner, S., Smyth, P., & Robertson, A. W. (2004). Conditional Chow–Liu tree structures for modeling discrete-valued vector time series. *Proceedings of the 20th Conference on Uncertainty in Artificial Intelligence (UAI'04)*, pp. 317–324. AUAI Press.
+> Kirshner, S., Smyth, P., & Robertson, A. W. (2004). Conditional Chow–Liu tree structures for modeling discrete-valued vector time series. <!-- *Proceedings of the 20th Conference on Uncertainty in Artificial Intelligence (UAI'04)*, pp. 317–324. AUAI Press. -->
 
 
 ## Project Overview
 
-This project applies latent variable modeling and structure learning methods to analyze ten years of daily binary rainfall events across 54 weather stations in India. The goal is to uncover large scale seasonal rainfall regimes and understand how spatial dependency patterns change across these regimes. A Hidden Markov Model captures the temporal dynamics of latent seasonal states, while each state's spatial structure is learned using a Chow-Liu tree[[5]](https://ieeexplore.ieee.org/document/1054142) constructed as a maximum spanning tree over pairwise mutual information. This results in interpretable latent regimes, each with its own learned spatial dependency structure.
+This project applies latent variable modeling and structure learning methods to analyze ten years of daily binary rainfall events across 54 weather stations in India. The goal is to uncover large scale seasonal rainfall regimes and understand how spatial dependency patterns change across these regimes. A Hidden Markov Model captures the temporal dynamics of latent seasonal states, while each state's spatial structure is learned using a Chow-Liu tree[[5]](https://ieeexplore.ieee.org/document/1054142) <!-- constructed as a maximum spanning tree over pairwise mutual information. This results in interpretable latent regimes, each with its own learned spatial dependency structure. --> 
 
-Learning is performed with the **Baum-Welch algorithm**, a specific instance of **Expectation-Maximization**:
+<!--
+
+Learning is performed with the **Baum-Welch algorithm**, a specific instance of **Expectation-Maximization**
+
 
 **E-step**: computes the posterior distribution over latent states for each day using forward-backward algorithm. [[1]](https://arxiv.org/abs/1207.4142)
 
 **M-step**: maximizes the expected log likelihood by updating the transition probabilities given the distribution from the E-step and re learning a separate Chow-Liu tree for each state using data weighted by the state posteriors, allowing each tree structure to adapt as the latent assignments evolve. [[1]](https://arxiv.org/abs/1207.4142)
+
+-->
 
 For more details, see [Report.pdf](Report.pdf).
 
@@ -27,7 +32,7 @@ For more details, see [Report.pdf](Report.pdf).
 
 **Latent Temporal states:**
 
-The HMM models daily rainfall occurrence as a sequence of hidden states, with each of the **three latent states** representing a distinct seasonal rainfall pattern: transitional (z=0), monsoon (z=1), and dry (z=2).
+The HMM models daily rainfall occurrence as a sequence of hidden states, with each of the **three latent states** representing a distinct seasonal rainfall pattern.
 
 Each animation visualizes binary rainfall occurrence for all days assigned to each hidden state:
 
@@ -42,35 +47,42 @@ A complete ten year sequence of observed rainfall and inferred hidden states is 
 
 **Learned spatial dependencies:**
 
-The emission distribution p(x|z=k) for each latent state z is modeled using a Chow-Liu tree, which captures spatial dependencies across
+The emission distribution p(x|z=k) for each latent state z is modeled using a Chow-Liu tree
+
+<!--
+, which captures spatial dependencies across
 stations via a tree-structured Ising model. The edges of the tree are selected to form a maximum-weight spanning tree based on 
 mutual information between pairs of stations.
+-->
 
 <img src="assets/HMM+CL+PLL.png" width="930" height="500" />
 
-* Overall EM-trained weighted mean pseudo-log-likelihood per day = –15.89
 * Node colors represent the average rainfall frequency at each station across all days assigned to the corresponding latent state, edge width indicates the strength of Mutual Information between stations.
 *  Z = 0 corresponds to transitional season, Z = 1 corresponds to Rainy/Monsoon season, Z=2 corresponds to dry season.
 
-
+<!--
 ---
 ## Adding BIC penalty to Chow-Liu Trees
 Adding a BIC penalty lets the Chow–Liu procedure prune weak edges, i.e., select fewer edges when they do not improve the log likelihood sufficiently, so instead of forcing a fully connected tree, it can return a smaller forest that keeps only the strongest spatial dependencies. [[4]](https://github.com/ihler/pyGMs/blob/master/notebooks/06%20Learning%20from%20Data.ipynb) 
  <img src="assets/BicPenalty0.015.png" width="950" />
 
+
 After adding the BIC penalty, the monsoon state still showed strong coastal links, the transitional state preserved only its major rainy-region edges, and the dry state became almost empty, 
 highlighting the much weaker mutual information during the dry season.
 
-
+-->
 ---
 ## Baseline comparison
  <img src="assets/global_CL.png" width="350" />
 
 
+Compared to a single global Chow–Liu tree learned on the full ten-year dataset, the EM-trained HMM with state-dependent Chow–Liu emissions improved mean pseudo-log-likelihood per day from −18.59 to −15.89 (about 15%) while yielding more coherent and regionally consistent spatial dependency patterns.
+
+<!--
 To evaluate the effectiveness of the HMM+Chow-Liu model, we compare it to a baseline consisting of a single global Chow Liu tree learned on the full ten year dataset. Quantitatively, the global Chow Liu model achieves a mean pseudo log likelihood(PLL) per day of −18.59, while the EM learned HMM with state dependent Chow Liu emissions achieves overall mean PLL per day of −15.89, which is an improvement of about 15 percent. Qualitatively, the global model produces long range edges between distant stations, whereas the state dependent Chow Liu trees yield more coherent and regionally consistent dependency patterns, especially in the rainy season state.
+-->
 
-
-
+<!--
 ---
 ## Model Selection
 
@@ -112,14 +124,12 @@ We use two model selection methods to choose the number of latent temporal state
 </table>
 
 LOOCV favored \(k = 4\) and BIC favored \(k = 3\); to avoid redundancy and maintain interpretability, the three-state HMM was selected.
-
+-->
 ---
 
 ## Acknowledgements
 
-This project was made as the final project for my Graphical Models class at UCI. 
-
-I would like to thank Prof. Alexander Ihler for his guidance, class materials, and his [pyGMs](https://github.com/ihler/pyGMs) library used in this project.
+This project was made as the final project for my Graphical Models class at UCI. I would like to thank Prof. Alexander Ihler for his guidance, class materials, and his [pyGMs](https://github.com/ihler/pyGMs) library used in this project.
 
 
 ---
@@ -128,7 +138,7 @@ I would like to thank Prof. Alexander Ihler for his guidance, class materials, a
 
 - The Baum–Welch learning algorithm was borrowed from the CS179 class material.
 
-- The Chow–Liu implementation was borrowed and lightly modified from the [pyGMs](https://github.com/ihler/pyGMs) library (see `pyGMs-license.txt`).
+- The Chow–Liu implementation was borrowed and modified from the [pyGMs](https://github.com/ihler/pyGMs) library (see `pyGMs-license.txt`).
 
 ---
 
